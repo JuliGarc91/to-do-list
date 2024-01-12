@@ -5,11 +5,21 @@ import ToDoList from "./components/ToDoList";
 
 const App = () => {
    // text input
+  // const [todos, setTodos] = useState(() => {
+  //   const localValue = localStorage.getItem("ITEMS")
+  //   if (localValue === null) return []
+  //   return JSON.parse(localValue)
+  // });  // list will change everytime something is added (form is submitted). callback inside useState fx will get info from localstorage. UseEffect will use this to make data persist
   const [todos, setTodos] = useState(() => {
     const localValue = localStorage.getItem("ITEMS")
     if (localValue == null) return []
-    return JSON.parse(localValue)
-  });  // list will change everytime something is added (form is submitted). callback inside useState fx will get info from localstorage. UseEffect will use this to make data persist
+    try {
+      return JSON.parse(localValue)
+    } catch (e) {
+      console.error("Parsing error in localStorage 'ITEMS':", e);
+      return [];
+    }
+  });
 
   useEffect(() => {
     localStorage.setItem("ITEMS", JSON.stringify(todos))
