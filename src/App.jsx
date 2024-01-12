@@ -45,6 +45,7 @@ const App = () => {
       </form>
       <h1 className="header">Todo List</h1>
       <ul className="list">
+        {todos.length === 0 && "No Todos"} {/* to short circuit (stop code from executing the rest of the code) add conditional for when there are no to dos */}
         {todos.map(todo => {
           return (
             <li key={todo.id}>
