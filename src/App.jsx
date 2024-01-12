@@ -6,6 +6,15 @@ const App = () => {
    // text input
   const [todos, setTodos] = useState([]); // list will change everytime something is added (form is submitted)
   
+  function addToDo (title) { // after moving everything to the new component it doesn't work like it used to because it's not using the todos useState so make new callback fx that uses both form useState called newItem and and todos useState. Put callback in the NewToDoForm component where it is needed
+    setTodos(currentTodos => {
+      return [
+        ...currentTodos, 
+        { id: crypto.randomUUID(), title: newItem, completed: false } 
+      ]
+    })
+  }
+
   function toggleTodo (id, completed){
     setTodos (currentTodos => {
       return currentTodos.map(todo => {
