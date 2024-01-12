@@ -1,6 +1,6 @@
 import ToDoItem from "./ToDoItem"
 
-const ToDoList = ( { todos } ) => {
+const ToDoList = ( { todos, toggleTodo, deleteTodo } ) => {
   return (
     <ul className="list">
         {todos.length === 0 && "No Todos"} {/* to short circuit (stop code from executing the rest of the code) add conditional for when there are no to dos */}
@@ -19,10 +19,13 @@ const ToDoList = ( { todos } ) => {
             //   >Delete</button>
             // </li>
             <ToDoItem 
-                key={todo.id} 
-                completed={todo.completed} 
-                id={todo.id} 
-                title={todo.title}
+                key={todo.id}
+                {...todo} // to copy the to do data and make code more DRY
+                toggleTodo={toggleTodo}
+                deleteTodo={deleteTodo}
+                // completed={todo.completed} 
+                // id={todo.id} 
+                // title={todo.title}
             />
           )
         })}
