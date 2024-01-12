@@ -189,3 +189,23 @@ In this revised code:
 - It provides a robust way to handle potentially corrupted or invalid data in local storage.
 - Using a function to initialize state is efficient, especially when the initial state is based on a potentially expensive operation (like reading from local storage and parsing JSON).
 - The pattern ensures that your todo application can maintain its state across browser sessions, improving the user experience.
+
+#### Questions:
+
+Why am I able to use <Root /> prop in main.jsx?
+
+In `main.jsx` file, `<Root />` is used as a React component, and it's not technically a "prop" but rather a component instance. The reason you can use `<Root />` in `main.jsx` lies in the fundamentals of how React components work. Let's break this down:
+
+1. **React Component Definition**: In React, a component is a JavaScript function or class that returns a React element. The `Root` function in your `main.jsx` file is a functional component. It's a function that returns JSX, which describes what should be rendered to the DOM.
+
+2. **JSX Syntax**: JSX is a syntax extension for JavaScript, commonly used with React. It allows you to write HTML-like syntax which gets transformed into JavaScript. When you write `<Root />`, JSX converts this into a React element. Under the hood, it's similar to calling `React.createElement(Root)`.
+
+3. **Component Rendering**: In React, components can be rendered inside other components. This is a fundamental part of React's compositional nature. By using `<Root />` in your `main.jsx`, you're instructing React to render the `Root` component inside the `root` DOM element of your HTML.
+
+4. **Component Hierarchy**: In a typical React application, you have a component hierarchy. The `Root` component can be the top-level component that wraps other components, including `App`. This hierarchy is what structures your application's UI.
+
+5. **Why `Root` Works**: The `Root` component works in `main.jsx` because defined it in the same file. It's a standard practice in React to define a component and use it in JSX. This isn't limited to `Root`; any component you define can be used in this manner.
+
+6. **ReactDOM Rendering**: Finally, `ReactDOM.createRoot(document.getElementById('root')).render(<Root />);` is the code that tells React to take your `Root` component and render it into the DOM, inside the element with the ID `root`. This is typically done in the entry point of a React application.
+
+In summary, `<Root />` in `main.jsx` is a usage of the `Root` component that was defined. It's how React knows to render this component into the application.
