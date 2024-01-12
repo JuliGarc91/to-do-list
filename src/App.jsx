@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "./styles.css"
+import NewToDoForm from "./components/NewToDoForm";
 
 const App = () => {
   const [newItem, setNewItem] = useState(""); // text input
@@ -36,13 +37,7 @@ const App = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="new-item-form">
-        <div className="form-row">
-          <label htmlFor="item">New Item</label>
-          <input value={newItem} onChange={e => setNewItem(e.target.value)} type="type" id="item" />
-        </div>
-        <button className="btn">Add</button>
-      </form>
+    <NewToDoForm handleSubmit={handleSubmit} newItem={newItem} />
       <h1 className="header">Todo List</h1>
       <ul className="list">
         {todos.length === 0 && "No Todos"} {/* to short circuit (stop code from executing the rest of the code) add conditional for when there are no to dos */}
