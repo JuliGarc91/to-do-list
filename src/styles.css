@@ -156,3 +156,7 @@
   .list li:has(input:checked) label:hover::before {
     background: hsl(147, 100%, 30%);
   }
+
+  input::placeholder {
+    color: hsl(145, 100%, 80%);
+  }
