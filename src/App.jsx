@@ -3,20 +3,8 @@ import "./styles.css"
 import NewToDoForm from "./components/NewToDoForm";
 
 const App = () => {
-  const [newItem, setNewItem] = useState(""); // text input
+   // text input
   const [todos, setTodos] = useState([]); // list will change everytime something is added (form is submitted)
-  
-  function handleSubmit(e) {
-    e.preventDefault(); 
-
-    setTodos(currentTodos => {
-    return [
-      ...currentTodos, 
-      { id: crypto.randomUUID(), title: newItem, completed: false } 
-    ]
-  })
-  setNewItem("") // to reset the form to blank once form is submitted
- }
   
   function toggleTodo (id, completed){
     setTodos (currentTodos => {
@@ -37,7 +25,7 @@ const App = () => {
 
   return (
     <>
-    <NewToDoForm handleSubmit={handleSubmit} newItem={newItem} />
+    <NewToDoForm />
       <h1 className="header">Todo List</h1>
       <ul className="list">
         {todos.length === 0 && "No Todos"} {/* to short circuit (stop code from executing the rest of the code) add conditional for when there are no to dos */}
