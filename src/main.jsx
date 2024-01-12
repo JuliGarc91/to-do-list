@@ -1,13 +1,3 @@
-// import React from 'react'
-// import ReactDOM from 'react-dom/client'
-// import App from './App.jsx'
-
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-// )
-
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
@@ -17,8 +7,9 @@ function Root() {
     const initialBackgroundImage = 'https://www.bbg.org/img/uploads/lightbox/_lightbox_retina/starburst_MS_51860951755.jpg';
     const backgroundImages = [
         'https://www.bbg.org/img/uploads/lightbox/_lightbox_retina/starburst_MS_51860951755.jpg',
-        'https://www.bbg.org/img/uploads/lightbox/_lightbox_retina/azalea_BB_28781183938.jpg',
-        'https://www.bbg.org/img/uploads/lightbox/_lightbox_retina/camellia-winters-star-snowy_BB_11312791746.jpg'
+        'https://www.bbg.org/img/uploads/lightbox/_lightbox_retina/snakes-head-fritillary_MS_52020358788.jpg',
+        'https://www.bbg.org/img/uploads/lightbox/_lightbox_retina/spanish-bluebell_SS.jpg',
+        'https://www.bbg.org/img/uploads/lightbox/_lightbox_retina/wildcolumbine_BB_26114708833.jpg'
     ];
 
     const [backgroundImage, setBackgroundImage] = useState(initialBackgroundImage);
@@ -32,7 +23,7 @@ function Root() {
     const divStyle = {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'fixed',
+        backgroundPosition: 'center',
         minHeight: '100vh',
         width: '100%'
     };
