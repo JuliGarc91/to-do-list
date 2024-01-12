@@ -10,7 +10,7 @@ const App = () => {
     setTodos(currentTodos => {
       return [
         ...currentTodos, 
-        { id: crypto.randomUUID(), title: newItem, completed: false } 
+        { id: crypto.randomUUID(), title, completed: false } // passed on title as parameter since newItem useState is in different component (title would be newItem entered into text field)
       ]
     })
   }
@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <>
-    <NewToDoForm />
+    <NewToDoForm onSubmit={addToDo} />
       <h1 className="header">Todo List</h1>
       <ul className="list">
         {todos.length === 0 && "No Todos"} {/* to short circuit (stop code from executing the rest of the code) add conditional for when there are no to dos */}
